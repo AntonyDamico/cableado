@@ -10,12 +10,15 @@ class Habitacion:
         self.alto = alto
         self.cajas = []
         self.principal = False
+
         if hab_anterior is not None:
             self.hab_anterior = hab_anterior
-            self.agregar_caja()
+
             if not hab_anterior.principal and self.cambio_orientacion():
                 print('no es la misma')
-                # self.hab_anterior.agregar_caja()
+                self.hab_anterior.agregar_caja()
+
+            self.agregar_caja()
 
     def agregar_caja_principal(self, x, y):
         self.principal = True
@@ -27,9 +30,17 @@ class Habitacion:
         self.cajas.append(nueva_caja)
 
     def crear_caja(self):
-        if not self.cajas:
-            caja_anterior = self.hab_anterior.cajas[-1]
-            return Caja(caja_anterior.x, caja_anterior.y, caja_anterior)
+        caja_anterior = self.hab_anterior.cajas[-1]
+        new_x = caja_anterior.x
+        new_y = caja_anterior.y
+        if self.cajas:
+            # return Caja(new_x, new_y, caja_anterior)
+            if self.check_orientacion() == 'horizontal':
+                new_x = caja_anterior.x + self.ancho
+            if self.check_orientacion() == 'vertical':
+                new_y = caja_anterior.y + self.alto
+        return Caja(new_x, new_y, caja_anterior)
+            
 
     def check_orientacion(self):
         if self.hab_anterior is not None:
