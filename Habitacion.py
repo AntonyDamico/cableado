@@ -3,6 +3,17 @@ from Caja import Caja
 
 class Habitacion:
     def __init__(self, computadoras, x, y, ancho, alto, hab_anterior=None):
+        '''
+        Constructor
+        -------------
+        args
+        int computadoras: número de computadoras en la habitación
+        int x: posición en x de la habitación en el plano
+        int y: posición en y de la habitación en el plano
+        int ancho: valor del tamaño horizontal de la habitación
+        int alto: valor del tamaño vertical de la habitación
+        Habitacion hab_anterior: objeto Habitación al que está conectado la habitación actual
+        '''
         self.computadoras = computadoras
         self.x = x
         self.y = y
