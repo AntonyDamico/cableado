@@ -1,6 +1,5 @@
 from Habitacion import Habitacion
 from Caja import Caja
-from Arbol import Arbol
 
 # habitación principal
 hab0 = Habitacion(0, 0, 0, 4, 4)
