@@ -8,3 +8,6 @@ class Caja:
         self.x = x
         self.y = y
         self.anterior = anterior
+
+    def __str__(self):
+        return f'caja en posición X:{self.x} Y:{self.y}'

@@ -67,11 +67,18 @@ class Habitacion:
         # cambiando los x & y de la caja si ya existe una en la habitación
         if self.cajas:
             if self.check_orientacion() == 'horizontal':
-                new_x = caja_anterior.x + self.ancho
+                new_x = self.get_nueva_posicion(caja_anterior.x, self.ancho)
             if self.check_orientacion() == 'vertical':
-                new_y = caja_anterior.y + self.alto
+                new_y = self.get_nueva_posicion(caja_anterior.y, self.alto)
 
         return Caja(new_x, new_y, caja_anterior)
+
+
+    def get_nueva_posicion(self, caja_anterior_pos, distancia):
+        if caja_anterior_pos == 0:
+            return caja_anterior_pos + distancia
+        return 0
+
 
     def check_orientacion(self):
         '''
@@ -91,3 +98,6 @@ class Habitacion:
         Devuelve un boolean que indica si la orientación ha cambiado o no
         '''
         return self.check_orientacion() != self.hab_anterior.check_orientacion()
+
+    def __str__(self):
+        return f'habitacion en posición X:{self.x} Y:{self.y}'
