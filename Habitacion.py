@@ -75,6 +75,11 @@ class Habitacion:
 
 
     def get_nueva_posicion(self, caja_anterior_pos, distancia):
+        '''
+        Devuelve una nueva posición para una segunda caja en la habitación
+        Si la primera estaba en 0, la empuja hacia la siguiente pared
+        Si no los estaba, lo devuelve a la pared que sea 0
+        '''
         if caja_anterior_pos == 0:
             return caja_anterior_pos + distancia
         return 0
