@@ -12,6 +12,11 @@ class Caja:
         self.distancia_a_principal = self.calcular_distancia_principal()
 
     def calcular_distancia_principal(self):
+        '''
+        Calcula la distancia de la caja actual a la caja principal
+        sumando el x & y para llegar a la habitación y
+        el x & y para llegar a la caja dentro de la habitación
+        '''
         distancia_a_hab = self.habitacion.x + self.habitacion.y
         distancia_a_caja = distancia_a_hab + self.x + self.y
         return distancia_a_caja

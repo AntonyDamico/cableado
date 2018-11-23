@@ -19,7 +19,9 @@ class Habitacion:
         self.y = y
         self.ancho = ancho
         self.alto = alto
+        # Las cajas de la habitación van a estar guardadas en este array
         self.cajas = []
+        # Determina si la habitación actual es principal
         self.principal = False
 
         if hab_anterior is not None:
