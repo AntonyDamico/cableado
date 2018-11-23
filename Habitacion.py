@@ -37,7 +37,7 @@ class Habitacion:
         los argumentos van a ser la posición de esa caja
         '''
         self.principal = True
-        caja_principal = Caja(x, y)
+        caja_principal = Caja(x, y, self)
         self.cajas.append(caja_principal)
 
     '''
@@ -63,6 +63,7 @@ class Habitacion:
         caja_anterior = self.hab_anterior.cajas[-1]
         new_x = caja_anterior.x
         new_y = caja_anterior.y
+        habitacion_nueva_caja = self
 
         # cambiando los x & y de la caja si ya existe una en la habitación
         if self.cajas:
@@ -71,7 +72,7 @@ class Habitacion:
             if self.check_orientacion() == 'vertical':
                 new_y = self.get_nueva_posicion(caja_anterior.y, self.alto)
 
-        return Caja(new_x, new_y, caja_anterior)
+        return Caja(new_x, new_y, habitacion_nueva_caja, caja_anterior)
 
 
     def get_nueva_posicion(self, caja_anterior_pos, distancia):
