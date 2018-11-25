@@ -23,9 +23,9 @@ class Habitacion:
         self.cajas = []
         # Determina si la habitación actual es principal
         self.principal = False
+        self.hab_anterior = hab_anterior
 
         if hab_anterior is not None:
-            self.hab_anterior = hab_anterior
             # si la habitación anterior no es principal y se cambió la horientación
             if not hab_anterior.principal and self.cambio_orientacion():
                 # se agrega una segunda caja a la habitación anterior
