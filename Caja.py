@@ -23,3 +23,14 @@ class Caja:
 
     def __str__(self):
         return f'caja en posición X:{self.x} Y:{self.y}'
+
+
+    '''
+    función recursiva para encontrar la habitación principal
+    en el caso de que la necesite
+    '''
+    # def get_hab_principal(self, hab):
+    #     hab_anterior = hab.hab_anterior
+    #     if hab_anterior is not None:
+    #         hab = self.get_hab_principal(hab_anterior)
+    #     return hab
