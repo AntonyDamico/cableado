@@ -69,6 +69,7 @@ class Habitacion:
 
         # cambiando los x & y de la caja si ya existe una en la habitación
         if self.cajas:
+            caja_anterior = self.cajas[0]
             if self.check_orientacion() == 'horizontal':
                 new_x = self.get_nueva_posicion(caja_anterior.x, self.ancho)
             if self.check_orientacion() == 'vertical':
