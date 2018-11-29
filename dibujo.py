@@ -22,19 +22,19 @@ habitaciones.append(Habitacion(2, 10, 8, 4, 4, habitaciones[6]))
 
 '''
 ==========================================
+            Dibujando canvas
+==========================================
 '''
 
-
-# plt.figure(figsize=(20, 10))
 np.linspace(0, 2, 100)
 fig = plt.figure()
-# fig, ax = plt.subplots(1, gridspec_kw={'width_ratios': [3]})
 ax = fig.add_subplot(1, 1, 1)
-# fig = plt.figure(figsize=(5,5))
 
+# Tamano del canvas y distancia entre ticks
 major_ticks = np.arange(0, 20, 5)
 minor_ticks = np.arange(0, 20, 5)
 
+# Dibujando los tics
 ax.set_ylim(ax.get_ylim()[::-1])
 ax.set_xticks(major_ticks)
 ax.set_xticks(minor_ticks, minor=True)
@@ -43,10 +43,12 @@ ax.set_yticks(minor_ticks, minor=True)
 
 
 for habitacion in habitaciones:
+    # Dibujando habitación
     hab_args = [(habitacion.x, habitacion.y), habitacion.ancho, habitacion.alto]
     rect = patches.Rectangle(*hab_args, linewidth=2, edgecolor='r', facecolor='none')
     ax.add_patch(rect)
 
+    # Dibujando cajas
     for caja in habitacion.cajas:
         pos_caja = [caja.x, caja.y]
 
@@ -55,30 +57,8 @@ for habitacion in habitaciones:
                 pos_caja[i] -= 1
 
         caja_args = [(habitacion.x + pos_caja[0], habitacion.y + pos_caja[1]), 1, 1]
-
-        print(f'caja pos {caja_args[0]}')
         rect = patches.Rectangle(*caja_args)
         ax.add_patch(rect)
-
-
-# arr = [
-#     [(10, 0), 10, 10],
-#     [(30, 0), 10, 10],
-#     [(0.6, 0.1), 0.4, 0.5]
-# ]
-
-# for i in arr:
-#     rect = patches.Rectangle(*i)
-#     ax.add_patch(rect)
-
-# for i in range(1,9):
-#     rect = patches.Rectangle((i*10, 50), 10, 10, linewidth=1, edgecolor='r', facecolor='none')
-#     ax.add_patch(rect)
-#     rect = patches.Rectangle((i*10, 50), 4, 4, linewidth=1, edgecolor='r', facecolor='none')
-#     ax.add_patch(rect)
-
-# rect = patches.Rectangle((0.1, 0.1), 0.5, 0.5, linewidth=1, edgecolor='r', facecolor='none')
-# ax.add_patch(rect)
 
 plt.show()
 
