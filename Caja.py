@@ -19,11 +19,19 @@ class Caja:
         '''
         distancia_a_hab = self.habitacion.x + self.habitacion.y
         distancia_a_caja = distancia_a_hab + self.x + self.y
+        caja_principal = self.get_caja_principal(self)
+        distancia_a_caja -= caja_principal.x + caja_principal.y
         return distancia_a_caja
 
     def __str__(self):
         return f'caja en posición X:{self.x} Y:{self.y}'
 
+
+    def get_caja_principal(self, caja):
+        caja_anterior = caja.caja_anterior
+        if caja_anterior is not None:
+            caja = self.get_caja_principal(caja_anterior)
+        return caja
 
     '''
     función recursiva para encontrar la habitación principal
