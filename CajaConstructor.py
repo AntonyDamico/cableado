@@ -2,7 +2,20 @@ from Caja import Caja
 
 
 class CajaConstructor:
+    '''
+    Clase usada para construir los objetos Caja que se 
+    van a agregar a las habitaciones con esta clase 
+    se pueden ubicar las cajas automaticamanete en la
+    habitacion donde pertenecen
+    '''
+
     def __init__(self, habitacion):
+        '''
+        Constructor
+        -------------
+        args
+        Habitacion habitacion: objeto Habitación al que se le quiere agregar la caja
+        '''
         self.habitacion = habitacion
 
     def get_caja(self):
@@ -24,14 +37,13 @@ class CajaConstructor:
         new_x = caja_anterior.x
         new_y = caja_anterior.y
 
+        # Si ya hay una caja en la habitacion, se calcula una nueva posicion
         if self.habitacion.cajas:
             caja_anterior = self.habitacion.cajas[0]
             if self.habitacion.check_orientacion() == 'horizontal':
-                new_x = self.get_nueva_posicion(
-                    caja_anterior.x, self.habitacion.ancho)
+                new_x = self.get_nueva_posicion(caja_anterior.x, self.habitacion.ancho)
             if self.habitacion.check_orientacion() == 'vertical':
-                new_y = self.get_nueva_posicion(
-                    caja_anterior.y, self.habitacion.alto)
+                new_y = self.get_nueva_posicion(caja_anterior.y, self.habitacion.alto)
 
         return new_x, new_y
 
