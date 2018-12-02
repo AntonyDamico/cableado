@@ -7,7 +7,7 @@ np.linspace(0, 2, 100)
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 
-def dibujar(habitaciones):
+def dibujar_plano(habitaciones):
     setup_ticks(habitaciones[-1])
 
     for habitacion in habitaciones:
