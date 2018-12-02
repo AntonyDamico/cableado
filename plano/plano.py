@@ -7,13 +7,24 @@ np.linspace(0, 2, 100)
 fig = plt.figure()
 ax = fig.add_subplot(1, 1, 1)
 
+
 def dibujar(habitaciones):
-    setup_ticks(habitaciones[-1])
+    setup_ticks(habitaciones)
 
     for habitacion in habitaciones:
-    # Dibujando habitación
-        hab_args = [(habitacion.x, habitacion.y), habitacion.ancho, habitacion.alto]
-        rect = patches.Rectangle(*hab_args, linewidth=2, edgecolor='r', facecolor='none')
+        # Dibujando habitación
+        hab_args = [
+            (habitacion.x, habitacion.y),
+            habitacion.ancho,
+            habitacion.alto
+        ]
+
+        rect = patches.Rectangle(
+            *hab_args, 
+            linewidth=2, 
+            edgecolor='r', 
+            facecolor='none'
+        )
         ax.add_patch(rect)
 
         # Dibujando cajas
@@ -24,15 +35,21 @@ def dibujar(habitaciones):
                 if pos_caja[i] > 0:
                     pos_caja[i] -= 1
 
-            caja_args = [(habitacion.x + pos_caja[0], habitacion.y + pos_caja[1]), 1, 1]
+            caja_args = [
+                (habitacion.x + pos_caja[0], habitacion.y + pos_caja[1]), 
+                1, 
+                1
+            ]
             rect = patches.Rectangle(*caja_args)
             ax.add_patch(rect)
     plt.show()
 
 
-def setup_ticks(habitacion):
-    max_number = max(habitacion.x, habitacion.y)
-    max_number += max(habitacion.ancho, habitacion.alto)
+def setup_ticks(habs):
+    # max_number = max(habitacion.x, habitacion.y)
+    # max_number += max(habitacion.ancho, habitacion.alto)
+    max_number = max(max(hab.x, hab.y) for hab in habs)
+    max_number += max(max(hab.ancho, hab.alto) for hab in habs)
     max_number += math.ceil(float(max_number) / 5)
 
     major_ticks = np.arange(0, max_number, 1)
