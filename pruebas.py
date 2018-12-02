@@ -1,6 +1,5 @@
-from Habitacion import Habitacion
-from Caja import Caja
-import plano
+from estructura.Habitacion import Habitacion
+from plano import plano
 
 habitaciones = []
 
