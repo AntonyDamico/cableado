@@ -1,5 +1,6 @@
 from Habitacion import Habitacion
 from Caja import Caja
+import dibujar
 
 # habitación principal
 hab0 = Habitacion(0, 0, 0, 4, 4)
@@ -34,6 +35,8 @@ FIN
 ======
 '''
 
+habs = [hab0, hab1, hab2, hab3, hab4, hab5, hab6, hab7]
+
 # print(f'{hab4} {hab4.cajas[-1]}')
 # print(f'{hab5} {hab5.cajas[-1]} len {len(hab5.cajas)}')
 # print(f'{hab6} {hab6.cajas[-1]}\n\n')
@@ -55,3 +58,5 @@ hab3 = Habitacion(1, 4, 0, 4, 4, hab2)
 
 
 
+
+dibujar.dibujar(habs)
