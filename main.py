@@ -1,6 +1,6 @@
 from Habitacion import Habitacion
 from Caja import Caja
-import dibujar
+import plano
 
 habitaciones = []
 
@@ -22,7 +22,7 @@ habitaciones.append(Habitacion(4, 10, 4, 4, 4, habitaciones[5]))
 habitaciones.append(Habitacion(2, 10, 8, 4, 4, habitaciones[6]))
 
 
-dibujar.dibujar(habitaciones)
+plano.dibujar(habitaciones)
 
 
 '''
