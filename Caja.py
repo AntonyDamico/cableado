@@ -23,22 +23,15 @@ class Caja:
         distancia_a_caja -= caja_principal.x + caja_principal.y
         return distancia_a_caja
 
-    def __str__(self):
-        return f'caja en posición X:{self.x} Y:{self.y}'
-
-
     def get_caja_principal(self, caja):
+        '''
+        función recursiva que encuentra la caja principal
+        para poder calcular la distancia a ella
+        '''
         caja_anterior = caja.caja_anterior
         if caja_anterior is not None:
             caja = self.get_caja_principal(caja_anterior)
         return caja
 
-    '''
-    función recursiva para encontrar la habitación principal
-    en el caso de que la necesite
-    '''
-    # def get_hab_principal(self, hab):
-    #     hab_anterior = hab.hab_anterior
-    #     if hab_anterior is not None:
-    #         hab = self.get_hab_principal(hab_anterior)
-    #     return hab
+    def __str__(self):
+        return f'caja en posición X:{self.x} Y:{self.y}'
