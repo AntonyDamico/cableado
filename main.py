@@ -35,6 +35,8 @@ caja_hab7 = habitaciones[7].cajas[-1]
 print('La distancia de la caja de la habitacion 7 a la principal es:',
       caja_hab7.distancia_a_principal)
 
+print('cableado aereo:', habitaciones[7].cableado_aereo)
+print('cableado bajadas:', habitaciones[7].cableado_bajadas)
 '''
 ======
 FIN

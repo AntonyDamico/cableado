@@ -3,7 +3,7 @@ from .CajaConstructor import CajaConstructor
 
 
 class Habitacion:
-    def __init__(self, computadoras, x, y, ancho, alto, hab_anterior=None):
+    def __init__(self, computadoras, x, y, ancho, alto, hab_anterior=None, CONST_MTS=8):
         '''
         Constructor
         -------------
@@ -33,6 +33,8 @@ class Habitacion:
                 self.hab_anterior.agregar_caja()
             # agregando caja a la habitación actual
             self.agregar_caja()
+            self.cableado_aereo = self.calcular_cableado_aereo()
+            self.cableado_bajadas = self.calcular_cableado_bajadas(CONST_MTS)
 
     def agregar_caja_principal(self, x, y):
         '''
@@ -69,6 +71,14 @@ class Habitacion:
                 return 'vertical'
         print('no hay hab anterior')
         return None
+
+    def calcular_cableado_aereo(self):
+        caja = self.cajas[-1]
+        cableado_aereo = self.computadoras * caja.distancia_a_principal
+        return cableado_aereo
+
+    def calcular_cableado_bajadas(self, CONST_MTS):
+        return CONST_MTS * self.computadoras
 
     def cambio_orientacion(self):
         '''
