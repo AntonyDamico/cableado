@@ -14,6 +14,7 @@ class Habitacion:
         int ancho: valor del tamaño horizontal de la habitación
         int alto: valor del tamaño vertical de la habitación
         Habitacion hab_anterior: objeto Habitación al que está conectado la habitación actual
+        int CONST_MTS: constante para calcular el cableado de bajadas
         '''
         self.computadoras = computadoras
         self.x = x
@@ -34,7 +35,7 @@ class Habitacion:
             # agregando caja a la habitación actual
             self.agregar_caja()
             self.cableado_aereo = self.calcular_cableado_aereo()
-            self.cableado_bajadas = self.calcular_cableado_bajadas(CONST_MTS)
+            self.cableado_bajada = self.calcular_cableado_bajada(CONST_MTS)
 
     def agregar_caja_principal(self, x, y):
         '''
@@ -77,7 +78,7 @@ class Habitacion:
         cableado_aereo = self.computadoras * caja.distancia_a_principal
         return cableado_aereo
 
-    def calcular_cableado_bajadas(self, CONST_MTS):
+    def calcular_cableado_bajada(self, CONST_MTS):
         return CONST_MTS * self.computadoras
 
     def cambio_orientacion(self):
