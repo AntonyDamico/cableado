@@ -26,6 +26,8 @@ class Habitacion:
         # Determina si la habitación actual es principal
         self.principal = False
         self.hab_anterior = hab_anterior
+        self.cableado_aereo = 0
+        self.cableado_bajada = 0
 
         if hab_anterior is not None:
             # si la habitación anterior no es principal y se cambió la horientación
